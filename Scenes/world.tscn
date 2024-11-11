@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://df1yd7sa67n30"]
+[gd_scene load_steps=15 format=3 uid="uid://df1yd7sa67n30"]
 
 [ext_resource type="Texture2D" uid="uid://cwylmplvxliwm" path="res://Assets/Images/grey stone wall.png" id="1_3t0l0"]
 [ext_resource type="Texture2D" uid="uid://d185kdq567o1r" path="res://Assets/Images/GRAYROCKS.png" id="1_hc0p6"]
 [ext_resource type="PackedScene" uid="uid://dl4vf0tehccqe" path="res://Scenes/player.tscn" id="1_tt7fa"]
+[ext_resource type="PackedScene" uid="uid://qlulvsjvgarb" path="res://Scenes/guard.tscn" id="4_67nmw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qougn"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -84,3 +85,18 @@ material_override = SubResource("StandardMaterial3D_y1jwd")
 mesh = SubResource("BoxMesh_ktt24")
 
 [node name="Player" parent="." instance=ExtResource("1_tt7fa")]
+
+[node name="guard" parent="." instance=ExtResource("4_67nmw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0476512, 0.0193834, -24.3659)
+
+[node name="guard2" parent="." instance=ExtResource("4_67nmw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.6352, 0, 22.3307)
+
+[node name="guard3" parent="." instance=ExtResource("4_67nmw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2641, 0, 18.2986)
+
+[node name="guard4" parent="." instance=ExtResource("4_67nmw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9064, 0, -17.9312)
+
+[node name="guard5" parent="." instance=ExtResource("4_67nmw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2696, 0, -21.535)
