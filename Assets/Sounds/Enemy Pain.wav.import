@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b5fyc6cmuxvbx"
+path="res://.godot/imported/Enemy Pain.wav-50ddbbecf5a9a3e6af6963207a94ad19.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Enemy Pain.wav"
+dest_files=["res://.godot/imported/Enemy Pain.wav-50ddbbecf5a9a3e6af6963207a94ad19.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
