@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cyljj35woad4p"]
+[gd_scene load_steps=22 format=3 uid="uid://cyljj35woad4p"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_hqc7s"]
 [ext_resource type="Texture2D" uid="uid://bv8exiopxr5tl" path="res://Assets/Images/wolfweapons.png" id="1_u73e4"]
@@ -158,6 +158,17 @@ animations = [{
 "speed": 16.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_adk6s"]
+font_size = 30
+outline_size = 3
+outline_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8dhiu"]
+font_size = 32
+
 [node name="ui" type="CanvasLayer"]
 script = ExtResource("1_hqc7s")
 
@@ -182,3 +193,27 @@ offset_right = 576.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0.129412, 0.368627, 1)
+
+[node name="label" type="Label" parent="."]
+anchors_preset = -1
+offset_left = 751.0
+offset_top = 564.0
+offset_right = 866.0
+offset_bottom = 606.0
+text = "HEALTH"
+label_settings = SubResource("LabelSettings_adk6s")
+horizontal_alignment = 1
+
+[node name="HEALTH" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.655
+anchor_top = 0.877
+anchor_right = 0.75
+anchor_bottom = 1.0
+offset_left = -0.560059
+offset_top = 39.704
+offset_right = -6.10352e-05
+offset_bottom = -3.0
+label_settings = SubResource("LabelSettings_8dhiu")
+horizontal_alignment = 1
+vertical_alignment = 2

@@ -2,11 +2,11 @@ extends CharacterBody3D
 
 @onready var player : CharacterBody3D = get_tree().get_first_node_in_group("player")
 
-const SPEED = 5.0
+const SPEED = 4.0
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var dead = false
 var is_attacking = false
-var attack_range = 5
+var attack_range = 10
 
 func _ready():
     add_to_group("enemy")
@@ -46,6 +46,8 @@ func attack():
     else:
         is_attacking = true
         $AnimatedSprite3D.play("shoot")
+        if $RayCast3D.is_colliding() and $RayCast3D.get_collider().has_method("damage"):
+            $RayCast3D.get_collider().damage()
         await $AnimatedSprite3D.animation_finished
         is_attacking = false
 
