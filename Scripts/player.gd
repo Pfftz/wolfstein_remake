@@ -45,4 +45,8 @@ func damage():
 	player_health -= 10
 	print("Player health: ", player_health)
 	if player_health <= 0:
-		queue_free()
+		if Global.lives <= 1:
+			queue_free()
+		else:
+			Global.lives -= 1
+			get_tree().change_scene_to_file("res://Scenes/world.tscn")

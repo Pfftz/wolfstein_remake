@@ -25,10 +25,10 @@ func _process(delta):
 
 	if Input.is_action_pressed("attack") and can_shoot:
 		if Global.current_weapon == "knife":
-			ray_cast.target_position.z = -KNIFE_RANGE  # Fixed comparison operator and using constant
+			ray_cast.target_position.z = -KNIFE_RANGE # Fixed comparison operator and using constant
 			$AnimatedSprite2D.play("stab")
 		else:
-			ray_cast.target_position.z = -GUN_RANGE  # Set longer range for guns
+			ray_cast.target_position.z = -GUN_RANGE # Set longer range for guns
 			$AnimatedSprite2D.play(Global.current_weapon + "_shoot")
 
 		time_since_last_shot = 0.0
@@ -51,12 +51,34 @@ func _process(delta):
 	
 	update_player_health()
 	update_player_ammo()
+	update_player_lives()
+	update_face_animation(get_parent().player_health)
 
 func _on_AnimatedSprite2D_animation_finished():
 	$AnimatedSprite2D.play(Global.current_weapon + "_idle")
 
 func update_player_health():
-	$HEALTH.text=str(get_parent().player_health)
+	$HEALTH.text = str(get_parent().player_health)
 
 func update_player_ammo():
-	$AMMO.text=str(Global.ammo)
+	$AMMO.text = str(Global.ammo)
+
+func update_player_lives():
+	$LIVES.text = str(Global.lives)
+
+func update_face_animation(health):
+	var animation_name = ""
+	if health > 90:
+		animation_name = "100"
+	elif health > 75:
+		animation_name = "90"
+	elif health > 60:
+		animation_name = "75"
+	elif health > 45:
+		animation_name = "60"
+	elif health > 30:
+		animation_name = "45"
+	elif health > 15:
+		animation_name = "30"
+	
+	$bjface.play(animation_name)
