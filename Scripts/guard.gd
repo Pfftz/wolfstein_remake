@@ -43,13 +43,18 @@ func attack():
     var dist_to_player = global_position.distance_to(player.global_position)
     if dist_to_player > attack_range:
         return
-    else:
-        is_attacking = true
-        $AnimatedSprite3D.play("shoot")
-        if $RayCast3D.is_colliding() and $RayCast3D.get_collider().has_method("damage"):
-            $RayCast3D.get_collider().damage()
-        await $AnimatedSprite3D.animation_finished
-        is_attacking = false
+    
+    var dir = player.global_position - global_position
+    dir.y = 0
+    dir = dir.normalized()
+    rotation.y = atan2(dir.x, dir.z)
+
+    is_attacking = true
+    $AnimatedSprite3D.play("shoot")
+    if $RayCast3D.is_colliding() and $RayCast3D.get_collider().has_method("damage"):
+        $RayCast3D.get_collider().damage()
+    await $AnimatedSprite3D.animation_finished
+    is_attacking = false
 
 func die():
     dead = true

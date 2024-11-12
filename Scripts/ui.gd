@@ -50,9 +50,13 @@ func _process(delta):
 			fire_rate = 1.0
 	
 	update_player_health()
+	update_player_ammo()
 
 func _on_AnimatedSprite2D_animation_finished():
 	$AnimatedSprite2D.play(Global.current_weapon + "_idle")
 
 func update_player_health():
 	$HEALTH.text=str(get_parent().player_health)
+
+func update_player_ammo():
+	$AMMO.text=str(Global.ammo)
