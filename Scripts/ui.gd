@@ -53,6 +53,7 @@ func _process(delta):
 	update_player_ammo()
 	update_player_lives()
 	update_face_animation(get_parent().player_health)
+	update_player_level()
 
 func _on_AnimatedSprite2D_animation_finished():
 	$AnimatedSprite2D.play(Global.current_weapon + "_idle")
@@ -65,6 +66,9 @@ func update_player_ammo():
 
 func update_player_lives():
 	$LIVES.text = str(Global.lives)
+	
+func update_player_level():
+	$LEVEL.text = str(Global.current_level)
 
 func update_face_animation(health):
 	var animation_name = ""

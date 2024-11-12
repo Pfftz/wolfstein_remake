@@ -2,6 +2,7 @@ extends Node
 
 var ammo = 100
 var current_weapon
+var current_level = 1
 var lives = 3
 
 func _ready():

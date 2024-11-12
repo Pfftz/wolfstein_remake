@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://df1yd7sa67n30"]
+[gd_scene load_steps=19 format=3 uid="uid://df1yd7sa67n30"]
 
 [ext_resource type="Texture2D" uid="uid://cwylmplvxliwm" path="res://Assets/Images/grey stone wall.png" id="1_3t0l0"]
 [ext_resource type="Texture2D" uid="uid://d185kdq567o1r" path="res://Assets/Images/GRAYROCKS.png" id="1_hc0p6"]
 [ext_resource type="PackedScene" uid="uid://dl4vf0tehccqe" path="res://Scenes/player.tscn" id="1_tt7fa"]
+[ext_resource type="Script" path="res://Scripts/world.gd" id="1_tvvy2"]
 [ext_resource type="PackedScene" uid="uid://qlulvsjvgarb" path="res://Scenes/guard.tscn" id="4_67nmw"]
 [ext_resource type="PackedScene" uid="uid://475qykckx76w" path="res://Scenes/ammo.tscn" id="5_fbc6g"]
 [ext_resource type="PackedScene" uid="uid://u7hsbhs7qmq0" path="res://Scenes/HealthPickup.tscn" id="6_31mx7"]
@@ -47,7 +48,10 @@ albedo_texture = ExtResource("1_3t0l0")
 uv1_scale = Vector3(8, 4, 4)
 uv1_triplanar = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fmm5y"]
+
 [node name="World" type="Node3D"]
+script = ExtResource("1_tvvy2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8i8gs")
@@ -105,3 +109,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7404, 0, -0.37879)
 
 [node name="guard2" parent="." instance=ExtResource("4_67nmw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9908, 0, -11.4712)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1299, 0, 25.1801)
+shape = SubResource("BoxShape3D_fmm5y")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

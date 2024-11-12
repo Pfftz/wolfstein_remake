@@ -1,0 +1,189 @@
+[gd_scene load_steps=15 format=3 uid="uid://bmcjnlujbrv07"]
+
+[ext_resource type="Texture2D" uid="uid://d185kdq567o1r" path="res://Assets/Images/GRAYROCKS.png" id="1_aj761"]
+[ext_resource type="Texture2D" uid="uid://cwylmplvxliwm" path="res://Assets/Images/grey stone wall.png" id="2_uq6nt"]
+[ext_resource type="PackedScene" uid="uid://dl4vf0tehccqe" path="res://Scenes/player.tscn" id="3_lytx6"]
+[ext_resource type="PackedScene" uid="uid://475qykckx76w" path="res://Scenes/ammo.tscn" id="4_hqs6s"]
+[ext_resource type="PackedScene" uid="uid://u7hsbhs7qmq0" path="res://Scenes/HealthPickup.tscn" id="5_o5653"]
+[ext_resource type="PackedScene" uid="uid://qlulvsjvgarb" path="res://Scenes/guard.tscn" id="6_4wj34"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_axyns"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_rmeu4"]
+sky_material = SubResource("ProceduralSkyMaterial_axyns")
+
+[sub_resource type="Environment" id="Environment_5bid6"]
+background_mode = 2
+sky = SubResource("Sky_rmeu4")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xm0al"]
+diffuse_mode = 3
+albedo_texture = ExtResource("1_aj761")
+uv1_scale = Vector3(10, 10, 10)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_aqrpi"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ew1br"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0gtc0"]
+albedo_texture = ExtResource("2_uq6nt")
+uv1_scale = Vector3(8, 4, 4)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_p2sdg"]
+
+[node name="level2" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5bid6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_xm0al")
+mesh = SubResource("PlaneMesh_aqrpi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ew1br")
+
+[node name="Player" parent="." instance=ExtResource("3_lytx6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 41, 0, 44)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="wall" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(80, 0, 0, 0, 10, 0, 0, 0, 3, 6.56824, 5.07102, 33.8538)
+material_override = SubResource("StandardMaterial3D_0gtc0")
+mesh = SubResource("BoxMesh_p2sdg")
+skeleton = NodePath("../..")
+
+[node name="wall2" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(90, 0, 0, 0, 10, 0, 0, 0, 3, 6.56824, 5.07102, 22.4957)
+material_override = SubResource("StandardMaterial3D_0gtc0")
+mesh = SubResource("BoxMesh_p2sdg")
+skeleton = NodePath("../..")
+
+[node name="wall13" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(90, 0, 0, 0, 10, 0, 0, 0, 3, -5.97878, 5.07102, 5.71417)
+material_override = SubResource("StandardMaterial3D_0gtc0")
+mesh = SubResource("BoxMesh_p2sdg")
+skeleton = NodePath("../..")
+
+[node name="wall14" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(80, 0, 0, 0, 10, 0, 0, 0, 3, -8.61461, 5.07102, -5.64388)
+material_override = SubResource("StandardMaterial3D_0gtc0")
+mesh = SubResource("BoxMesh_p2sdg")
+skeleton = NodePath("../..")
+
+[node name="wall11" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(90, 0, 0, 0, 10, 0, 0, 0, 3, 7.26738, 5.07102, -25.4476)
+material_override = SubResource("StandardMaterial3D_0gtc0")
+mesh = SubResource("BoxMesh_p2sdg")
+skeleton = NodePath("../..")
+
+[node name="wall12" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(80, 0, 0, 0, 10, 0, 0, 0, 3, 7.26738, 5.07102, -36.8056)
+material_override = SubResource("StandardMaterial3D_0gtc0")
+mesh = SubResource("BoxMesh_p2sdg")
+skeleton = NodePath("../..")
+
+[node name="wall5" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(60, 0, 0, 0, 10, 0, 0, 0, 3, -20.1343, 5.07102, -48.2119)
+material_override = SubResource("StandardMaterial3D_0gtc0")
+mesh = SubResource("BoxMesh_p2sdg")
+skeleton = NodePath("../..")
+
+[node name="wall6" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(60, 0, 0, 0, 10, 0, 0, 0, 3, 39.6638, 5.07102, -48.2119)
+material_override = SubResource("StandardMaterial3D_0gtc0")
+mesh = SubResource("BoxMesh_p2sdg")
+skeleton = NodePath("../..")
+
+[node name="wall7" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(60, 0, 0, 0, 10, 0, 0, 0, 3, 39.6638, 5.07102, 48.5646)
+material_override = SubResource("StandardMaterial3D_0gtc0")
+mesh = SubResource("BoxMesh_p2sdg")
+skeleton = NodePath("../..")
+
+[node name="wall8" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(60, 0, 0, 0, 10, 0, 0, 0, 3, -20.494, 5.07102, 48.5646)
+material_override = SubResource("StandardMaterial3D_0gtc0")
+mesh = SubResource("BoxMesh_p2sdg")
+skeleton = NodePath("../..")
+
+[node name="wall3" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-2.62268e-06, 0, -3, 0, 10, 0, 60, 0, -1.31134e-07, 48.3883, 5.07102, 19.54)
+material_override = SubResource("StandardMaterial3D_0gtc0")
+mesh = SubResource("BoxMesh_p2sdg")
+skeleton = NodePath("../..")
+
+[node name="wall4" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-2.62268e-06, 0, -3, 0, 10, 0, 60, 0, -1.31134e-07, 48.3883, 5.07102, -40.9226)
+material_override = SubResource("StandardMaterial3D_0gtc0")
+mesh = SubResource("BoxMesh_p2sdg")
+skeleton = NodePath("../..")
+
+[node name="wall9" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-2.62268e-06, 0, -3, 0, 10, 0, 60, 0, -1.31134e-07, -50.1873, 5.07102, 19.54)
+material_override = SubResource("StandardMaterial3D_0gtc0")
+mesh = SubResource("BoxMesh_p2sdg")
+skeleton = NodePath("../..")
+
+[node name="wall10" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-2.62268e-06, 0, -3, 0, 10, 0, 60, 0, -1.31134e-07, -50.1873, 5.07102, -39.8825)
+material_override = SubResource("StandardMaterial3D_0gtc0")
+mesh = SubResource("BoxMesh_p2sdg")
+skeleton = NodePath("../..")
+
+[node name="Guards" type="Node" parent="."]
+
+[node name="guard" parent="Guards" instance=ExtResource("6_4wj34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1927, 0, 11.8787)
+
+[node name="guard2" parent="Guards" instance=ExtResource("6_4wj34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.5501, 0, -7.82257)
+
+[node name="guard3" parent="Guards" instance=ExtResource("6_4wj34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.5827, 3.8147e-06, 15.4818)
+
+[node name="guard4" parent="Guards" instance=ExtResource("6_4wj34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.7387, 0, -16.9971)
+
+[node name="guard5" parent="Guards" instance=ExtResource("6_4wj34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.0909, 0, -10.8718)
+
+[node name="Collectibles" type="Node" parent="."]
+
+[node name="ammo" parent="Collectibles" instance=ExtResource("4_hqs6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.4383, 0, 41.9569)
+
+[node name="HealthPickup" parent="Collectibles" instance=ExtResource("5_o5653")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.3724, 3.8147e-06, 25.886)
+
+[node name="HealthPickup2" parent="Collectibles" instance=ExtResource("5_o5653")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.48, 0, -0.00286674)
+
+[node name="ammo2" parent="Collectibles" instance=ExtResource("4_hqs6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.8861, 0, -16.1928)
+
+[node name="ammo3" parent="Collectibles" instance=ExtResource("4_hqs6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.3549, 3.8147e-06, -35.0865)
+
+[node name="HealthPickup3" parent="Collectibles" instance=ExtResource("5_o5653")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.3942, 0, -42.5681)
+
+[node name="ammo4" parent="Collectibles" instance=ExtResource("4_hqs6s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.1185, -3.8147e-06, -33.972)
+
+[node name="HealthPickup4" parent="Collectibles" instance=ExtResource("5_o5653")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.1176, 3.8147e-06, -44.9748)

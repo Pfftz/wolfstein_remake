@@ -451,6 +451,30 @@ label_settings = SubResource("LabelSettings_8dhiu")
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="label4" type="Label" parent="."]
+offset_left = 176.0
+offset_top = 565.0
+offset_right = 291.0
+offset_bottom = 607.0
+text = "LEVEL
+"
+label_settings = SubResource("LabelSettings_adk6s")
+horizontal_alignment = 1
+
+[node name="LEVEL" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.264
+anchor_top = 0.876
+anchor_right = 0.359
+anchor_bottom = 1.0
+offset_left = -128.128
+offset_top = 32.352
+offset_right = -127.568
+offset_bottom = -2.99988
+label_settings = SubResource("LabelSettings_8dhiu")
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="bjface" type="AnimatedSprite2D" parent="."]
 position = Vector2(577.75, 606.875)
 scale = Vector2(2.57812, 2.57031)
