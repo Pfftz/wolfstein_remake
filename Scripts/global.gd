@@ -4,6 +4,7 @@ var ammo = 100
 var current_weapon
 var current_level = 1
 var lives = 3
+var player_score = 0
 
 func _ready():
     current_weapon = "knife"

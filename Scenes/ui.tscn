@@ -411,13 +411,13 @@ horizontal_alignment = 1
 
 [node name="HEALTH" type="Label" parent="."]
 anchors_preset = -1
-anchor_left = 0.655
+anchor_left = 0.647
 anchor_top = 0.877
-anchor_right = 0.75
+anchor_right = 0.742
 anchor_bottom = 1.0
-offset_left = -9.56006
-offset_top = 39.704
-offset_right = -9.00006
+offset_left = -0.344116
+offset_top = 39.7039
+offset_right = 0.215881
 offset_bottom = 5.0
 label_settings = SubResource("LabelSettings_8dhiu")
 horizontal_alignment = 1
@@ -425,13 +425,13 @@ vertical_alignment = 2
 
 [node name="AMMO" type="Label" parent="."]
 anchors_preset = -1
-anchor_left = 0.813
-anchor_top = 0.87
-anchor_right = 0.909
+anchor_left = 0.781
+anchor_top = 0.878
+anchor_right = 0.877
 anchor_bottom = 1.0
-offset_left = -36.576
-offset_top = 38.2399
-offset_right = -37.1681
+offset_left = 0.288025
+offset_top = 33.0558
+offset_right = -0.304138
 offset_bottom = -1.0
 label_settings = SubResource("LabelSettings_8dhiu")
 horizontal_alignment = 1
@@ -463,13 +463,37 @@ horizontal_alignment = 1
 
 [node name="LEVEL" type="Label" parent="."]
 anchors_preset = -1
-anchor_left = 0.264
+anchor_left = 0.153
 anchor_top = 0.876
-anchor_right = 0.359
+anchor_right = 0.248
 anchor_bottom = 1.0
-offset_left = -128.128
+offset_left = -0.256027
 offset_top = 32.352
-offset_right = -127.568
+offset_right = 0.303986
+offset_bottom = -2.99988
+label_settings = SubResource("LabelSettings_8dhiu")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="label5" type="Label" parent="."]
+offset_left = 40.0
+offset_top = 565.0
+offset_right = 155.0
+offset_bottom = 607.0
+text = "SCORE
+"
+label_settings = SubResource("LabelSettings_adk6s")
+horizontal_alignment = 1
+
+[node name="SCORE" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.873
+anchor_right = 0.13
+anchor_bottom = 1.0
+offset_left = -0.320015
+offset_top = 34.296
+offset_right = 0.23999
 offset_bottom = -2.99988
 label_settings = SubResource("LabelSettings_8dhiu")
 horizontal_alignment = 1

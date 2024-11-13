@@ -58,6 +58,7 @@ func attack():
 
 func die():
     dead = true
+    Global.player_score += 100
     $AnimatedSprite3D.play("die")
     await $AnimatedSprite3D.animation_finished
     queue_free()
